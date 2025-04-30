@@ -1,66 +1,87 @@
-import {axiosi} from '../../config/axios'
+import axios from "axios"; 
 
-export const signup=async(cred)=>{
+
+const axiosi = axios.create({
+    baseURL: process.env.REACT_APP_API_URL || "http://localhost:7666/", // Use environment variable or fallback to localhost
+    withCredentials: true, 
+});
+
+// Signup API
+export const signup = async (cred) => {
     try {
-        const res=await axiosi.post("auth/signup",cred)
-        return res.data
+        const res = await axiosi.post("auth/signup", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const login=async(cred)=>{
+};
+
+// Login API
+export const login = async (cred) => {
     try {
-        const res=await axiosi.post("auth/login",cred)
-        return res.data
+        const res = await axiosi.post("auth/login", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const verifyOtp=async(cred)=>{
+};
+
+// Verify OTP API
+export const verifyOtp = async (cred) => {
     try {
-        const res=await axiosi.post("auth/verify-otp",cred)
-        return res.data
+        const res = await axiosi.post("auth/verify-otp", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const resendOtp=async(cred)=>{
+};
+
+// Resend OTP API
+export const resendOtp = async (cred) => {
     try {
-        const res=await axiosi.post("auth/resend-otp",cred)
-        return res.data
+        const res = await axiosi.post("auth/resend-otp", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const forgotPassword=async(cred)=>{
+};
+
+// Forgot Password API
+export const forgotPassword = async (cred) => {
     try {
-        const res=await axiosi.post("auth/forgot-password",cred)
-        return res.data
+        const res = await axiosi.post("auth/forgot-password", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const resetPassword=async(cred)=>{
+};
+
+// Reset Password API
+export const resetPassword = async (cred) => {
     try {
-        const res=await axiosi.post("auth/reset-password",cred)
-        return res.data
+        const res = await axiosi.post("auth/reset-password", cred);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const checkAuth=async(cred)=>{
+};
+
+// Check Authentication API
+export const checkAuth = async () => {
     try {
-        const res=await axiosi.get("auth/check-auth")
-        return res.data
+        const res = await axiosi.get("auth/check-auth");
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const logout=async()=>{
+};
+
+// Logout API
+export const logout = async () => {
     try {
-        const res=await axiosi.get("auth/logout")
-        return res.data
+        const res = await axiosi.get("auth/logout");
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
+};

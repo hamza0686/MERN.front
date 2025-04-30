@@ -1,6 +1,6 @@
 // src/components/SignupForm.jsx
 import React, { useState } from "react";
-import api from "../api/axios"; // adjust path if needed
+import api from "../config/axios"; // adjust path if needed
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({

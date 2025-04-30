@@ -1,34 +1,37 @@
-import { axiosi } from "../../config/axios";
+import axiosi from "../../config/axios";
 
-export const addAddress=async(address)=>{
+export const addAddress = async (address) => {
     try {
-        const res=await axiosi.post("/address",address)
-        return res.data
+        const res = await axiosi.post("/address", address);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const fetchAddressByUserId=async(id)=>{
+};
+
+export const fetchAddressByUserId = async (id) => {
     try {
-        const res=await axiosi.get(`/address/user/${id}`)
-        return res.data
+        const res = await axiosi.get(`/address/user/${id}`);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const updateAddressById=async(update)=>{
+};
+
+export const updateAddressById = async (update) => {
     try {
-        const res=await axiosi.patch(`/address/${update._id}`,update)
-        return res.data
+        const res = await axiosi.patch(`/address/${update._id}`, update);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
-export const deleteAddressById=async(id)=>{
+};
+
+export const deleteAddressById = async (id) => {
     try {
-        const res=await axiosi.delete(`/address/${id}`)
-        return res.data
+        const res = await axiosi.delete(`/address/${id}`);
+        return res.data;
     } catch (error) {
-        throw error.response.data
+        throw error.response?.data || error.message;
     }
-}
+};
